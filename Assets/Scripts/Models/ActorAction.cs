@@ -9,7 +9,7 @@ namespace Models
         public bool PlayDialogue { get; set; }
         
         [JsonProperty("facialExpression")]
-        public string FacialExpression { get; set; }   // null = leave unchanged
+        public FacialExpression FacialExpression { get; set; }   // null = leave unchanged
         
         [JsonProperty("mood")]
         public string Mood { get; set; }               // optional high-level tag
@@ -20,7 +20,7 @@ namespace Models
         
         /// <summary> Name of prop / actor this action refers to (may be null) </summary>
         [JsonProperty("target")]
-        public string Target { get; set; }
+        public AgentTarget Target { get; set; }
         
         [JsonProperty("dialogueLine")]
         public string DialogueLine { get; set; }
