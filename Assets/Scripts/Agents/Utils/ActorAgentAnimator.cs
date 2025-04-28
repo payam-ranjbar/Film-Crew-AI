@@ -21,9 +21,10 @@ namespace Agents.Utils
         }
         public IEnumerator LookAt(AgentTarget target, bool walk = false)
         {
-            // send the target to the location 
-        
-            // animate weight of rig to 1
+            if (headRotationRig.weight <= 0)
+            {
+                yield return DOVirtual.Float(0f, 1f, 0.2f, t => headRotationRig.weight = t);
+            }
             RealizeLookDuration();
             if(walk || CheckForBodyRotation(target.Coordinate))
                 yield return RotateBody(target);

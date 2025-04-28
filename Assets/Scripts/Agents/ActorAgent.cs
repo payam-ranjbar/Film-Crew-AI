@@ -12,8 +12,7 @@ namespace Agents
     {
         [SerializeField] private float bodyRotationCheckRadius;
         [SerializeField] private ActorAgentAnimator animator;
-        [SerializeField] private FacialExpressionProfile expressionProfile;
-        [SerializeField] private Image faceImage;
+        [SerializeField] private ActorAgentExpression expression;
         [SerializeField] private TMP_Text text;
         private ActorAction _currentAction;
         private float _walkDuration = 5;
@@ -24,13 +23,6 @@ namespace Agents
             text.text = line;
             yield return null;
         }
-
-        private void SetExpression(FacialExpression expression)
-        {
-            var sprite = expressionProfile.GetSprite(expression);
-            faceImage.sprite = sprite;
-        }
-        
         private IEnumerator WalkTo(AgentTarget target)
         {
             RealizeWalkDuration();
@@ -59,7 +51,7 @@ namespace Agents
             if (_currentAction.PlayDialogue)
                 yield return PlayDialogue(_currentAction.DialogueLine);
             
-            SetExpression(_currentAction.FacialExpression);
+            expression.SetExpression(_currentAction.FacialExpression);
 
             if (_currentAction.Method.ToLower() == "walk_to")
             {
