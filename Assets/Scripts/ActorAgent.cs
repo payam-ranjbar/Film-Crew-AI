@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.UI;
 
-public class ActorAget : MonoBehaviour
+public class ActorAgent : MonoBehaviour
 {
     [SerializeField] private float bodyRotationCheckRadius;
     [SerializeField] private Rig headRotationRig;
@@ -97,15 +97,13 @@ public class ActorAget : MonoBehaviour
         return 1f;
     }
 
-    public IEnumerator PlayTriggerSafe(
+    private IEnumerator PlayTriggerSafe(
         string triggerName,
-        string stateName = null,
         int layerIndex     = 0)
     {
         if (animator == null || string.IsNullOrEmpty(triggerName))
             yield break;
 
-        // 1 ───────── verify trigger parameter exists
         bool hasTrigger = false;
         foreach (var p in animator.parameters)
         {
@@ -120,14 +118,12 @@ public class ActorAget : MonoBehaviour
         if (!hasTrigger) triggerName = "idle";
 
 
-        // 2 ───────── check if target state is already playing
-        stateName ??= triggerName;                          // default assumption
-        int targetHash = Animator.StringToHash(stateName);
-        if (animator.GetCurrentAnimatorStateInfo(layerIndex).shortNameHash == targetHash)
+        var stateTag = triggerName;                          
+        int targetHash = Animator.StringToHash(stateTag);
+        if (animator.GetCurrentAnimatorStateInfo(layerIndex).tagHash == targetHash)
             yield break;
 
-        // 3 ───────── fire the trigger
-        animator.ResetTrigger(triggerName);                     // optional safety
+        animator.ResetTrigger(triggerName);                     
         animator.SetTrigger(triggerName);
     }
     public IEnumerator Perform(ActorAction action)

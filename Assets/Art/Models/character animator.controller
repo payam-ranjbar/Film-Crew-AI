@@ -71,7 +71,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -203655887218126122, guid: a6b510a9bf162bb469a10f38b9b5de36, type: 3}
-  m_Tag: 
+  m_Tag: walk
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -319,7 +319,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -203655887218126122, guid: 0737cf104219a2546bf958ca398409c6, type: 3}
-  m_Tag: 
+  m_Tag: angree
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -418,7 +418,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -203655887218126122, guid: d33d5c1c01acbf04888f5237651d327e, type: 3}
-  m_Tag: 
+  m_Tag: agree
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -445,7 +445,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -203655887218126122, guid: d8bdb55471cbc27439fad61a9e5f0ac1, type: 3}
-  m_Tag: 
+  m_Tag: happy
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -472,7 +472,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -203655887218126122, guid: eb36991cb4ca0934e86668c672ba2566, type: 3}
-  m_Tag: 
+  m_Tag: wave
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 

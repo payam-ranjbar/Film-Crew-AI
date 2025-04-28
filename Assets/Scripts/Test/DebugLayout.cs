@@ -1,18 +1,6 @@
-﻿/*───────────────────────────────────────────────────────────────
- *  DebugLayout.cs
- *  -------------------------------------------------------------
- *  Drop this component on an empty GameObject in your test scene.
- *  • Assign an ActorAget instance to “actor”.
- *  • Drag a few props / characters into “dummyTargets”.
- *  Press Play ➜ click **Run Random Action** to send coherent,
- *  mood-based ActorAction messages to your ActorAget.
- *───────────────────────────────────────────────────────────────*/
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DG.Tweening;              // ActorAget uses DOTween
-using Newtonsoft.Json;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using Models;                   // ActorAction, AgentTarget, FacialExpression
@@ -20,7 +8,7 @@ using Models;                   // ActorAction, AgentTarget, FacialExpression
 public class DebugLayout : MonoBehaviour
 {
     [Header("Scene References")]
-    [SerializeField] private ActorAget      actor;         // your in-scene actor agent
+    [SerializeField] private ActorAgent      actor;         // your in-scene actor agent
     [SerializeField] private Material      defualtMat;         // your in-scene actor agent
     [SerializeField] private Material     highlightedMat;         // your in-scene actor agent
     [SerializeField] private GameObject[]   dummyTargets;  // targets to walk/look at
@@ -58,11 +46,6 @@ public class DebugLayout : MonoBehaviour
             { "agree", new[]{ "look_at", "walk_to" } }
         };
 
-    /*───────────────────────────────────────────────────────────────
-     *  IMGUI  (simple one-button test panel)
-     *───────────────────────────────────────────────────────────────*/
-
- 
     private void OnGUI()
     {
     GUIStyle _btnStyle = new GUIStyle(GUI.skin.button);
@@ -70,7 +53,7 @@ public class DebugLayout : MonoBehaviour
         // one-time style init
         if (_btnStyle.fontSize == 0)
         {
-            int f = Mathf.RoundToInt(Screen.height * 0.03f);      // ~30 px @1080p
+            int f = Mathf.RoundToInt(Screen.height * 0.04f);      // ~30 px @1080p
             _btnStyle.fontSize = f;
             _boxStyle.fontSize = Mathf.RoundToInt(f * 0.65f);
             _boxStyle.alignment = TextAnchor.UpperLeft;
