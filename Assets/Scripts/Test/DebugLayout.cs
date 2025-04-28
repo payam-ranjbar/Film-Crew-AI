@@ -71,7 +71,7 @@ namespace Test
             float btnH    = Screen.height * 0.06f;                     // 6 % height
 
             if (GUI.Button(new Rect(margin, margin, btnW, btnH),
-                "Run Random Action", _btnStyle))
+                "Random Action", _btnStyle))
             {
                 RunRandom();
             }
