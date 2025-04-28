@@ -8,7 +8,6 @@ namespace Agents.Utils
     public class ActorAgentAnimator : MonoBehaviour
     {
         [SerializeField] private Animator animator;
-        [SerializeField] private float bodyRotationCheckRadius;
         [SerializeField] private Rig headRotationRig;
         [SerializeField] private Transform headTarget;
         private float _lookDuration = 1;
