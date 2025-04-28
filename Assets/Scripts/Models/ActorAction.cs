@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Agents.Utils;
+using Newtonsoft.Json;
 
 namespace Models
 {
